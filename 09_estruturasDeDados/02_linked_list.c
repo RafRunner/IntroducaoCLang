@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <assert.h>
-
 #include "02_linked_list.h"
 
 /*
@@ -13,6 +8,8 @@
     assim sabemos quando estamos nos extremos da lista. Veja uma exemplificação gráfica abaixo:
 
     NULL <- 3 -> <- 4 -> <- 5 -> <- 7 -> NULL
+            ^                       ^
+           head                    last
 
     Na LinkedList acima temos que 3 é o primeiro item e 7 o útimo. O item 4 aponta para 5 (próximo) e para 3 (anterior), e  etc.
 

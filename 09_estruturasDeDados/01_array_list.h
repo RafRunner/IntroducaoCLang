@@ -2,6 +2,13 @@
 #ifndef ARRAY_LIST_H
 #define ARRAY_LIST_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <time.h>
+#include <assert.h>
+#include <stddef.h>
+
 typedef struct ArrayList
 {
     // A quantidade de itens na lista atualmente. A operação de retornar o tamanho da lista está implicito nessa propriedade
@@ -19,7 +26,7 @@ typedef struct ArrayList
 } ArrayList;
 
 // Declarando as assinaturas dos métodos que vamos implementar no arquivo de mesmo novo com terminação .c
-ArrayList *ArrayList_create_with_size(unsigned int starting_size, size_t item_size);
+ArrayList *ArrayList_create_with_size(int starting_size, size_t item_size);
 
 ArrayList *ArrayList_create(size_t item_size);
 

@@ -3,6 +3,11 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <assert.h>
+
 // Ao não utilizar "typedef" antes de "struct", simplificamos a declaração, mas temos que usar "struct" antes do nome da estrutura ao nos
 // referirmos a ela. Como essa struct não será utilizado pelo usuário final do código (é um detalhe de implementação que deveria ser visível
 // apenas para quem for mexer no código da biblioteca em si) não vamos nos preocupar com o nome (é padrão usar _nome nesses casos);

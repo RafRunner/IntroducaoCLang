@@ -1,9 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <time.h>
-#include <assert.h>
-
 #include "01_array_list.h"
 
 /*
@@ -48,8 +42,11 @@
 */
 
 // Criando uma ArrayList com um tamanho inicial
-ArrayList *ArrayList_create_with_size(unsigned int starting_size, size_t item_size)
+ArrayList *ArrayList_create_with_size(int starting_size, size_t item_size)
 {
+    if (starting_size <= 0)
+        return NULL;
+
     ArrayList *list = malloc(sizeof(ArrayList));
     // Funões que alocam memória podem falhar se o computador estievr sem memória! Nesse caso podemos checar se malloc retornou NULL
     if (list == NULL)
@@ -99,7 +96,7 @@ int ArrayList_add(ArrayList *list, void *item, int index)
         if (list->size == INT_MAX)
         {
             printf("List too long to be indexed by int");
-            exit(1);
+            return 0;
         }
         // O novo tamanho é o tamanho antigo multiplicado por 2 (procure pelo operador << e >>)
         int new_size = list->size << 1;
