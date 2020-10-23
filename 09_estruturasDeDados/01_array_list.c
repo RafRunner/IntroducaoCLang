@@ -5,20 +5,20 @@
     de dados abstrata é apenas um conjunto de regras e operações, é como um conceito matemático e não é possível saber o custo computacional de suas
     operações, porque o "como" realiza-las ainda não é sabido! Qualquer implementação de uma estrutura de dados devo obedecer a todas as regras e
     implementar todas as operações para ser válida. A partir daí podemos sim medir o custo computacional (geralmente usando notação grande O, pesquise
-    sobre) de suas operações e pontencialmente compará-la com outras estruturas de dados ou outras implementações da mesma estrutura. Tome cuidado!
+    sobre) de suas operações e potencialmente compará-la com outras estruturas de dados ou outras implementações da mesma estrutura. Tome cuidado!
     a grande maioria dos cálculos de custo computacional não leva em conta o custo de cada operação, apenas o número de operações feitas e, portanto,
     é apenas uma estimativa, se performance é muito importante você deve testar diferentes implementações para o seu caso.
 
     A estrutura de dados mais simples e fundamental é a Lista, ela é a base para muitas outras estruturas. Uma lista é basicamente um vetor(array),
-    porém com tamanho totalmente flexivel, podendo ser iniciada com tamanho 0 e crescendo ou diminuido conforme elementos são inseridos ou retirados
+    porém com tamanho totalmente flexível, podendo ser iniciada com tamanho 0 e crescendo ou diminuído conforme elementos são inseridos ou retirados
     de forma automática. Assim como vetores começam a ser indexadas no 0 por padrão. Toda lista deve implementar as seguintes operações:
     - Adicionar um item em uma posição arbitrária
     - Remover um item em uma posição arbitrária
     - Retornar o tamanho da lista (número de itens)
     - Retornar um item em uma posição arbitrária
 
-    Essas são as operações básicas, porem podemos adicioar outras para facilitar a vida de quem for usar nossas estruturas, como verificar se existe
-    um item na lista, retornar o indice de um item, adicionar um item no início da lista, adicionar um elemento no fim da lista, etc
+    Essas são as operações básicas, porem podemos adicionar outras para facilitar a vida de quem for usar nossas estruturas, como verificar se existe
+    um item na lista, retornar o índice de um item, adicionar um item no início da lista, adicionar um elemento no fim da lista, etc
 
     A implementação mais comum para uma Lista é chamada de ArrayList. Ela implementa as operações de Lista utilizando arrays estáticos, e, conforme a
     lista precisa crescer, realoca o array estático interno para um maior (geralmente o dobro do tamanho atual) copiando todos os valores antigos.
@@ -48,7 +48,7 @@ ArrayList *ArrayList_create_with_size(int starting_size, size_t item_size)
         return NULL;
 
     ArrayList *list = malloc(sizeof(ArrayList));
-    // Funões que alocam memória podem falhar se o computador estievr sem memória! Nesse caso podemos checar se malloc retornou NULL
+    // Funções que alocam memória podem falhar se o computador estievr sem memória! Nesse caso podemos checar se malloc retornou NULL
     if (list == NULL)
         return NULL;
 
@@ -68,7 +68,7 @@ ArrayList *ArrayList_create_with_size(int starting_size, size_t item_size)
     return list;
 }
 
-// Caso o usuário não quiser definir um tamanho inicial, oferecemos essa função que cria uma com tamanho inicial 10 reutilziando o código acima
+// Caso o usuário não quiser definir um tamanho inicial, oferecemos essa função que cria uma com tamanho inicial 10 reutilizando o código acima
 ArrayList *ArrayList_create(size_t item_size)
 {
     return ArrayList_create_with_size(10, item_size);
@@ -92,7 +92,7 @@ int ArrayList_add(ArrayList *list, void *item, int index)
     // Temos que aumentar o tamanho do array interno!
     if (list->size == list->max_size)
     {
-        // Caso o tamanho da lista já seja o valor máximo suportado por "int", não podemos aumentar seu tamanho pois não seria possivel indexa-la
+        // Caso o tamanho da lista já seja o valor máximo suportado por "int", não podemos aumentar seu tamanho pois não seria possível indexa-la
         if (list->size == INT_MAX)
         {
             printf("List too long to be indexed by int");
@@ -101,7 +101,7 @@ int ArrayList_add(ArrayList *list, void *item, int index)
         // O novo tamanho é o tamanho antigo multiplicado por 2 (procure pelo operador << e >>)
         int new_size = list->size << 1;
         // Um dos motivos de usarmos "int" e não "unsigned int" para indexar o valor é para fazer o check de overflow aqui, se o tamanho máximo atual da
-        // lista for maior que o suprotado por int, ele irá dar overflow para um valor negativo (ou 0) e podemos checar aqui
+        // lista for maior que o suportado por int, ele irá dar overflow para um valor negativo (ou 0) e podemos checar aqui
         list->max_size = new_size > 0 ? new_size : INT_MAX;
 
         // A função realloc realoca um ponteiro para um novo tamanho copiando os valores antigos
@@ -139,7 +139,7 @@ void *ArrayList_remove(ArrayList *list, int index)
     if (removed == NULL)
         return NULL;
 
-    // Ao remover um item em uma posição qualquer, devemos mover os items a partir do indice uma posição para tras
+    // Ao remover um item em uma posição qualquer, devemos mover os items a partir do índice uma posição para trás
     for (int i = index; i < list->size; i++)
     {
         list->items[i] = list->items[i + 1];
@@ -182,7 +182,7 @@ void ArrayList_dealocate(ArrayList *list)
     }
     // Liberando o array
     free(list->items);
-    // Finalmente podemos libeara a lista
+    // Finalmente podemos liberar a lista
     free(list);
     list = NULL;
 }
@@ -202,7 +202,7 @@ int *create_pointer(int value)
     return p;
 }
 
-// Como vamos a ideia é improtar esse aquivo e o .h para utilizar ArrayList em outros lugares, esse aquivo não pode ter um main, para tal basta mudar
+// Como vamos a ideia é importar esse aquivo e o .h para utilizar ArrayList em outros lugares, esse aquivo não pode ter um main, para tal basta mudar
 // o 1 após "#if" que todo o código até o "#endif" será desconsiderado
 #if 1
 

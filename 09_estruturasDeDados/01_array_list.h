@@ -11,10 +11,10 @@
 
 typedef struct ArrayList
 {
-    // A quantidade de itens na lista atualmente. A operação de retornar o tamanho da lista está implicito nessa propriedade
+    // A quantidade de itens na lista atualmente. A operação de retornar o tamanho da lista está implícito nessa propriedade
     int size;
 
-    // O maior número de itens que podem ser guardados no array interno atualemente
+    // O maior número de itens que podem ser guardados no array interno atualmente
     int max_size;
 
     // O array interno. "void*" é um ponteiro genérico para qualquer tipo de dado. Temos que usar um ponteiro duplo pois como não sabemos para qual
