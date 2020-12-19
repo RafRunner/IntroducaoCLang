@@ -1,5 +1,4 @@
-
-// A estrutura formada por "ifndef", "define" e "endif" serve para impedir que esse header não seja importado mais de uma vez
+// A estrutura formada por "ifndef", "define" e "endif" serve para impedir que esse header seja importado mais de uma vez
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
@@ -54,3 +53,4 @@ void *LinkedList_remove(LinkedList *list, unsigned int index);
 void LinkedList_dealocate(LinkedList *list);
 
 #endif // LINKED_LIST_H
+

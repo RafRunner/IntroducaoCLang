@@ -47,3 +47,4 @@ void *ArrayList_remove_end(ArrayList *list);
 void ArrayList_dealocate(ArrayList *list);
 
 #endif // ARRAY_LIST_H
+
