@@ -1,5 +1,5 @@
 
-// A estrutura formada por "ifndef", "define" e "endif" serve para impedir que esse header seja importado mais de uma vez
+// A estrutura formada por "ifndef", "define" e "endif" serve para impedir que esse header não seja importado mais de uma vez
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
